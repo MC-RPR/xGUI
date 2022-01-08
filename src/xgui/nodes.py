@@ -7,7 +7,7 @@ except ImportError:
 
 
 class AbstractNodeVisitor(object):
-    def __init__(self, root):
+    def __init__(self, root: tk.Tk):
         self.root = root
 
     def visit(self, node: ET.Element):
@@ -15,7 +15,7 @@ class AbstractNodeVisitor(object):
         visitor = getattr(self, method, self.generic_visit)
         return visitor(node)
 
-    def tree_visit(self, node):
+    def tree_visit(self, node: ET.Element):
         for child in node:
             self.visit(child)
 
@@ -35,16 +35,16 @@ class WidgetVisitor(AbstractNodeVisitor):
     def visit_Button(self, node: ET.Element):
         return self.organize(tk.Button(self.root, text=node.text), node)
 
-    def visit_Label(self, node):
+    def visit_Label(self, node: ET.Element):
         return self.organize(tk.Label(self.root, text=node.text), node)
 
-    def visit_Entry(self, node):
+    def visit_Entry(self, node: ET.Element):
         return self.organize(tk.Entry(self.root), node)
 
-    def visit_Checkbutton(self, node):
+    def visit_Checkbutton(self, node: ET.Element):
         return self.organize(tk.Checkbutton(self.root, text=node.text), node)
 
-    def visit_config(self, node):
+    def visit_config(self, node: ET.Element):
         print("Ignoring config for now")
 
 
