@@ -1,0 +1,4 @@
+run = "echo nope"
+# There is a bug with Poetry and Nix that doesn't
+# detect TCL (python-poetry/poetry#4322)
+language = "python3"
