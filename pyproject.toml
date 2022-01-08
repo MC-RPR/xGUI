@@ -11,6 +11,7 @@ repository = "https://github.com/MC-RPR/xGUI"
 [tool.poetry.dependencies]
 python = "^3.8"
 defusedxml = { version = "^0.7", optional = true }
+Jinja2 = {version = "^3", optional = true}
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"
@@ -19,6 +20,7 @@ flake8 = "^4.0.1"
 
 [tool.poetry.extras]
 safe = ["defusedxml"]
+jinja2 = ["jinja2"]
 
 [tool.black]
 line-length = 88
